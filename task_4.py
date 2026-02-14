@@ -20,13 +20,13 @@ class EmployeeSalary:
     @classmethod
     def set_hourly_payment(cls, hourly_payment):
         cls.hourly_payment = hourly_payment 
-        
+    #    этот метод работает с двумя атрибутами объекта класса, 
+    # если hourly_payment для конкретного экземпляра будет переопределен, тут он не поменяется
     def salary(self):
-        return self.hours * EmployeeSalary.hourly_payment
+        return self.hours * self.hourly_payment #ссылка на собственный hourly_payment
 
     
-    
-    #  Проверка (прошу Вас, Алексадр Орехов, не ругайтесь за мои комментарии и мои проверки, я еще учусь, будьте снисходительнее что ли):
+    #  Проверка (для понимания):
 emp1 = EmployeeSalary.get_hours("Иван", 2, "ivan@email.com")  # rest_days=2
 print(emp1.salary())  # 16000
 
